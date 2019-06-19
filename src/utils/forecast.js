@@ -14,12 +14,23 @@ const forecast = (lat, lon, callback) => {
       const result = {
         temperature: body.currently.temperature,
         precip: body.currently.precipProbability,
-        summary: body.hourly.summary
+        summary: body.hourly.summary,
+        apparentTemp: body.currently.apparentTemperature,
+        windSpeed: body.currently.windSpeed,
+        visibility: body.currently.visibility
       };
       callback(undefined, {
         forecast: `${result.summary} It is currently ${
           result.temperature
-        } degrees Celsius out. There is a ${result.precip}% chance of rain.`
+        } degrees centigrade out, and it feels like ${
+          result.apparentTemp
+        } degrees centigrade. The wind speed is ${
+          result.windSpeed
+        }mph, and there is a ${
+          result.precip
+        }% chance of rain. We can see things clearly within ${
+          result.visibility
+        } miles.`
       });
     }
   });
