@@ -1,0 +1,1 @@
+A simple app to find out the daily weather information of a city in the world.
